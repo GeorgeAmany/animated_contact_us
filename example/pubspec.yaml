@@ -1,0 +1,13 @@
+name: animated_contact_us_example
+description: Example project for animated_contact_us package.
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  animated_contact_us:
+    path: ../

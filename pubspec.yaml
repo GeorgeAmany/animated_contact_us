@@ -1,7 +1,15 @@
 name: animated_contact_us
 description: A customizable Flutter widget for animated contact cards and social media links.
 version: 0.0.1
-homepage:
+homepage: https://github.com/GeorgeAmany/animated_contact_us
+repository: https://github.com/GeorgeAmany/animated_contact_us
+issue_tracker: https://github.com/GeorgeAmany/animated_contact_us/issues
+topics:
+  - contact
+  - social
+  - widget
+  - animation
+  - user-interface
 
 environment:
   sdk: ^3.7.2
