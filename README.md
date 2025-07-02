@@ -7,7 +7,7 @@ Ideal for apps, portfolios, or business apps that want to provide sleek, profess
 ---
 
 > Developed by **George Amany**, a Flutter developer, with guidance and mentorship by **Abdelrahman Ibrahem** (Tech Lead).  
-> This package reflects great teamwork and technical support throughout the process. 👏
+> This package reflects great teamwork and technical support throughout the process.
 
 ---
 
@@ -39,13 +39,12 @@ dependencies:
   
 ## Preview
 
-![Demo](https://github.com/GeorgeAmany/animated_contact_us/blob/main/example/assets/demo.gif?raw=true)
+![Demo](https://raw.githubusercontent.com/GeorgeAmany/animated_contact_us/refs/heads/main/example/assets/demo.gif)
 
 ## Usage
 
-Here’s a simple example of how to use the `ContactUsWidget`:
+Example of how to use the `AnimatedContactUs`:
 
-```dart
 import 'package:flutter/material.dart';
 import 'package:animated_contact_us/animated_contact_us.dart';
 
@@ -64,7 +63,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(16),
-          child: ContactUsWidget(
+          child: AnimatedContactUs(
             phone: '+1 (123) 456-7890',
             email: 'example@email.com',
             website: 'example.com',
