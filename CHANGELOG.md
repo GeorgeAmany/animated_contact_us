@@ -1,4 +1,4 @@
-## 0.0.1
+## 0.0.4
 
 - Initial release of `animated_contact_us`.
 - Added animated contact cards with:

@@ -28,6 +28,10 @@ Ideal for apps, portfolios, or business apps that want to provide sleek, profess
 - Tap animations (Mobile)
 
 ---
+## Preview
+
+![Demo](https://raw.githubusercontent.com/GeorgeAmany/animated_contact_us/main/example/assets/demo.gif)
+---
 
 ## Getting started
 
@@ -35,11 +39,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  animated_contact_us: ^0.0.1
-  
-## Preview
-
-![Demo](https://raw.githubusercontent.com/GeorgeAmany/animated_contact_us/refs/heads/main/example/assets/demo.gif)
+  animated_contact_us: ^0.0.4
 
 ## Usage
 
