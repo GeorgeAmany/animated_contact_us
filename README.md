@@ -1,8 +1,13 @@
-# 📨 animated_contact_us
+# animated_contact_us
 
 A beautiful and customizable Flutter widget to display animated contact information and social media links with smooth entry effects.
 
 Ideal for apps, portfolios, or business apps that want to provide sleek, professional contact UIs with little effort.
+
+---
+
+> Developed by **George Amany**, a Flutter developer, with guidance and mentorship by **Abdelrahman Ibrahem** (Tech Lead).  
+> This package reflects great teamwork and technical support throughout the process. 👏
 
 ---
 
