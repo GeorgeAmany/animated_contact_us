@@ -34,7 +34,7 @@ dependencies:
   
 ## Preview
 
-![Demo](https://raw.githubusercontent.com/GeorgeAmany/animated_contact_us/main/example/assets/demo.gif)  
+![Demo](https://github.com/GeorgeAmany/animated_contact_us/blob/main/example/assets/demo.gif?raw=true)
 
 ## Usage
 
