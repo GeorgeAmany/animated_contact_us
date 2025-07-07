@@ -21,6 +21,7 @@ Ideal for apps, portfolios, or business apps that want to provide sleek, profess
     - Instagram
     - Twitter (X)
     - GitHub
+    - WhatsApp
     - Snapchat
     - LinkedIn
     - TikTok
@@ -39,7 +40,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  animated_contact_us: ^0.0.4
+  animated_contact_us: ^0.0.5
 
 ## Usage
 

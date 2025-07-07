@@ -1,4 +1,6 @@
-import 'dart:io';
+// Conditional import to avoid dart:io crash on web
+import 'dart:io' if (dart.library.html) 'dart:html' as html;
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';  // only need this for social icons (font_awesome_flutter)
 import 'package:url_launcher/url_launcher.dart';
@@ -6,26 +8,62 @@ import 'package:url_launcher/url_launcher.dart';
 import 'widgets/animated_entry.dart'; // Custom widget to smoothly fade & slide items in
 import 'widgets/hover_icon_button.dart'; // Custom hoverable icon button (for social icons)
 
+/// This widget displays contact info like email, phone, and website,
+/// and animates their appearance alongside social media icons.
+/// ```
 class AnimatedContactUs extends StatefulWidget {
+  /// Email address to be displayed (optional).
   final String? email;
+
+  /// Phone number to be shown and dialed.
   final String phone;
+
+  /// Website URL (optional).
   final String? website;
+
+  /// Instagram username (optional).
   final String? instagram;
+
+  /// Facebook username (optional).
   final String? facebook;
+
+  /// Twitter/X username (optional).
   final String? twitter;
+
+  /// GitHub username (optional).
   final String? github;
+
+  /// WhatsApp number (optional).
   final String? whatsapp;
+
+  /// Snapchat username (optional).
   final String? snapchat;
+
+  /// LinkedIn username (optional).
   final String? linkedIn;
+
+  /// TikTok username (optional).
   final String? tiktok;
+
+  /// Whether to show the label text for each contact card.
   final bool showLabels;
 
+  /// Main color for the icons and text highlights.
   final Color? primaryColor;
+
+  /// Custom label for the email field.
   final String? emailLabel;
+
+  /// Custom label for the phone field.
   final String? phoneLabel;
+
+  /// Custom label for the website field.
   final String? websiteLabel;
+
+  /// Label for the "Follow Us" section.
   final String? followUsLabel;
 
+  /// Creates an animated contact section with social media links.
   const AnimatedContactUs({
     super.key,
     this.email,
@@ -54,6 +92,8 @@ class AnimatedContactUs extends StatefulWidget {
 class _AnimatedContactUsState extends State<AnimatedContactUs> {
   final List<bool> _visibleCards = [];    // Tracks visibility state of each contact card
   final List<bool> _visibleSocials = [];  // Tracks visibility state of each social icon
+  bool get isIOS => !kIsWeb && html.Platform.isIOS;
+  bool get isAndroid => !kIsWeb && html.Platform.isAndroid;
 
   Color get _mainColor => widget.primaryColor ?? Theme.of(context).colorScheme.primary;
 
@@ -202,7 +242,7 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
         elevation: 3,
         child: ListTile(
           leading: CircleAvatar(
-            backgroundColor: _mainColor.withOpacity(0.1),
+            backgroundColor: _mainColor.withAlpha((255 * 0.1).round()),
             child: Icon(icon, color: _mainColor),
           ),
           title: widget.showLabels
@@ -333,7 +373,7 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
     final webUrl = "https://api.whatsapp.com/send/?phone=$phone&text=$encodedMessage";
 
     try {
-      if (Platform.isIOS) {
+      if (isIOS) {
         if (await canLaunchUrl(Uri.parse(iosUrl))) {
           await launchUrl(Uri.parse(iosUrl), mode: LaunchMode.externalApplication);
           return;
@@ -396,7 +436,7 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
     required String android,
     required String web,
   }) async {
-    final native = Platform.isIOS ? ios : android;
+    final native = isIOS ? ios : android;
     final fallback = Uri.parse(web);
 
     try {
