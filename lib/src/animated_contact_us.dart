@@ -2,7 +2,7 @@
 import 'dart:io' if (dart.library.html) 'dart:html' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';  // only need this for social icons (font_awesome_flutter)
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // only need this for social icons (font_awesome_flutter)
 import 'package:url_launcher/url_launcher.dart';
 
 import 'widgets/animated_entry.dart'; // Custom widget to smoothly fade & slide items in
@@ -90,12 +90,15 @@ class AnimatedContactUs extends StatefulWidget {
 }
 
 class _AnimatedContactUsState extends State<AnimatedContactUs> {
-  final List<bool> _visibleCards = [];    // Tracks visibility state of each contact card
-  final List<bool> _visibleSocials = [];  // Tracks visibility state of each social icon
+  final List<bool> _visibleCards =
+      []; // Tracks visibility state of each contact card
+  final List<bool> _visibleSocials =
+      []; // Tracks visibility state of each social icon
   bool get isIOS => !kIsWeb && html.Platform.isIOS;
   bool get isAndroid => !kIsWeb && html.Platform.isAndroid;
 
-  Color get _mainColor => widget.primaryColor ?? Theme.of(context).colorScheme.primary;
+  Color get _mainColor =>
+      widget.primaryColor ?? Theme.of(context).colorScheme.primary;
 
   @override
   void initState() {
@@ -158,25 +161,29 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
 
     // Email card
     if (widget.email != null) {
-      contactCards.add(_buildCard(
-        index: contactCards.length,
-        context: context,
-        icon: Icons.email,
-        label: widget.emailLabel ?? 'Email',
-        value: widget.email!,
-        onTap: () => _launchEmail(widget.email!),
-      ));
+      contactCards.add(
+        _buildCard(
+          index: contactCards.length,
+          context: context,
+          icon: Icons.email,
+          label: widget.emailLabel ?? 'Email',
+          value: widget.email!,
+          onTap: () => _launchEmail(widget.email!),
+        ),
+      );
     }
 
     // Phone card
-    contactCards.add(_buildCard(
-      index: contactCards.length,
-      context: context,
-      icon: Icons.phone,
-      label: widget.phoneLabel ?? 'Phone Number',
-      value: widget.phone,
-      onTap: () => _launchPhone(widget.phone),
-    ));
+    contactCards.add(
+      _buildCard(
+        index: contactCards.length,
+        context: context,
+        icon: Icons.phone,
+        label: widget.phoneLabel ?? 'Phone Number',
+        value: widget.phone,
+        onTap: () => _launchPhone(widget.phone),
+      ),
+    );
 
     // Optional WhatsApp card
     // if (widget.whatsapp != null) {
@@ -192,14 +199,16 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
 
     // Website card
     if (widget.website != null) {
-      contactCards.add(_buildCard(
-        index: contactCards.length,
-        context: context,
-        icon: Icons.language,
-        label: widget.websiteLabel ?? 'Website',
-        value: widget.website!,
-        url: widget.website,
-      ));
+      contactCards.add(
+        _buildCard(
+          index: contactCards.length,
+          context: context,
+          icon: Icons.language,
+          label: widget.websiteLabel ?? 'Website',
+          value: widget.website!,
+          url: widget.website,
+        ),
+      );
     }
 
     return SingleChildScrollView(
@@ -245,9 +254,10 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
             backgroundColor: _mainColor.withAlpha((255 * 0.1).round()),
             child: Icon(icon, color: _mainColor),
           ),
-          title: widget.showLabels
-              ? Text(label, style: Theme.of(context).textTheme.titleMedium)
-              : null,
+          title:
+              widget.showLabels
+                  ? Text(label, style: Theme.of(context).textTheme.titleMedium)
+                  : null,
           subtitle: GestureDetector(
             onTap: onTap ?? (url != null ? () => _launchURL(url) : null),
             child: Text(
@@ -268,36 +278,78 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
     final List<_SocialIconData> data = [];
 
     if (widget.facebook != null) {
-      data.add(_SocialIconData(FontAwesomeIcons.facebook, () => _launchFacebook(widget.facebook!)));
+      data.add(
+        _SocialIconData(
+          FontAwesomeIcons.facebook,
+          () => _launchFacebook(widget.facebook!),
+        ),
+      );
     }
     if (widget.instagram != null) {
-      data.add(_SocialIconData(FontAwesomeIcons.instagram, () => _launchInstagram(widget.instagram!)));
+      data.add(
+        _SocialIconData(
+          FontAwesomeIcons.instagram,
+          () => _launchInstagram(widget.instagram!),
+        ),
+      );
     }
     if (widget.twitter != null) {
-      data.add(_SocialIconData(FontAwesomeIcons.twitter, () => _launchTwitter(widget.twitter!)));
+      data.add(
+        _SocialIconData(
+          FontAwesomeIcons.twitter,
+          () => _launchTwitter(widget.twitter!),
+        ),
+      );
     }
     if (widget.github != null) {
-      data.add(_SocialIconData(FontAwesomeIcons.github, () => _launchGithub(widget.github!)));
+      data.add(
+        _SocialIconData(
+          FontAwesomeIcons.github,
+          () => _launchGithub(widget.github!),
+        ),
+      );
     }
     if (widget.whatsapp != null) {
-      data.add(_SocialIconData(FontAwesomeIcons.whatsapp, () => _launchWhatsApp(widget.whatsapp!)));
+      data.add(
+        _SocialIconData(
+          FontAwesomeIcons.whatsapp,
+          () => _launchWhatsApp(widget.whatsapp!),
+        ),
+      );
     }
 
     // Website icon is always included
     if (widget.website != null) {
-      data.add(_SocialIconData(Icons.language, () => _launchURL(widget.website!)));
+      data.add(
+        _SocialIconData(Icons.language, () => _launchURL(widget.website!)),
+      );
     }
 
     if (widget.snapchat != null) {
-      data.add(_SocialIconData(FontAwesomeIcons.snapchat, () => _launchSnapchat(widget.snapchat!)));
+      data.add(
+        _SocialIconData(
+          FontAwesomeIcons.snapchat,
+          () => _launchSnapchat(widget.snapchat!),
+        ),
+      );
     }
 
     if (widget.linkedIn != null) {
-      data.add(_SocialIconData(FontAwesomeIcons.linkedin, () => _launchLinkedIn(widget.linkedIn!)));
+      data.add(
+        _SocialIconData(
+          FontAwesomeIcons.linkedin,
+          () => _launchLinkedIn(widget.linkedIn!),
+        ),
+      );
     }
 
     if (widget.tiktok != null) {
-      data.add(_SocialIconData(FontAwesomeIcons.tiktok, () => _launchTikTok(widget.tiktok!)));
+      data.add(
+        _SocialIconData(
+          FontAwesomeIcons.tiktok,
+          () => _launchTikTok(widget.tiktok!),
+        ),
+      );
     }
 
     return Wrap(
@@ -306,7 +358,8 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
       alignment: WrapAlignment.center,
       children: List.generate(data.length, (index) {
         final item = data[index];
-        final isVisible = index < _visibleSocials.length && _visibleSocials[index];
+        final isVisible =
+            index < _visibleSocials.length && _visibleSocials[index];
 
         return AnimatedEntry(
           visible: isVisible,
@@ -321,7 +374,10 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
     final uri = Uri.parse('mailto:$encodedEmail');
 
     try {
-      final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      final launched = await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      );
       if (!launched) {
         _showError('Could not open email client.');
       }
@@ -331,11 +387,17 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
   }
 
   void _launchPhone(String phoneNumber) async {
-    final cleaned = phoneNumber.replaceAll(RegExp(r'\s+'), ''); // to remove any spaces
+    final cleaned = phoneNumber.replaceAll(
+      RegExp(r'\s+'),
+      '',
+    ); // to remove any spaces
     final uri = Uri.parse('tel:$cleaned');
 
     try {
-      final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      final launched = await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      );
       if (!launched) {
         _showError('Could not open dialer.');
       }
@@ -343,7 +405,6 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
       _showError('Error launching phone: $e');
     }
   }
-
 
   // Opens a given URL in the system browser
   void _launchURL(String url) async {
@@ -356,7 +417,10 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
       return;
     }
     try {
-      final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      final launched = await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      );
       if (!launched) {
         _showError('Could not open: $url');
       }
@@ -370,17 +434,24 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
     final encodedMessage = Uri.encodeComponent(message);
     final androidUrl = "whatsapp://send?phone=$phone&text=$encodedMessage";
     final iosUrl = "https://wa.me/$phone?text=$encodedMessage";
-    final webUrl = "https://api.whatsapp.com/send/?phone=$phone&text=$encodedMessage";
+    final webUrl =
+        "https://api.whatsapp.com/send/?phone=$phone&text=$encodedMessage";
 
     try {
       if (isIOS) {
         if (await canLaunchUrl(Uri.parse(iosUrl))) {
-          await launchUrl(Uri.parse(iosUrl), mode: LaunchMode.externalApplication);
+          await launchUrl(
+            Uri.parse(iosUrl),
+            mode: LaunchMode.externalApplication,
+          );
           return;
         }
       } else {
         if (await canLaunchUrl(Uri.parse(androidUrl))) {
-          await launchUrl(Uri.parse(androidUrl), mode: LaunchMode.externalApplication);
+          await launchUrl(
+            Uri.parse(androidUrl),
+            mode: LaunchMode.externalApplication,
+          );
           return;
         }
       }
@@ -409,8 +480,10 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
     web: 'https://twitter.com/$username',
   );
 
-  Future<void> _launchGithub(String username) async =>
-      launchUrl(Uri.parse('https://github.com/$username'), mode: LaunchMode.externalApplication);
+  Future<void> _launchGithub(String username) async => launchUrl(
+    Uri.parse('https://github.com/$username'),
+    mode: LaunchMode.externalApplication,
+  );
 
   Future<void> _launchSnapchat(String username) async => _launchSocial(
     ios: 'snapchat://add/$username',
@@ -440,7 +513,10 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
     final fallback = Uri.parse(web);
 
     try {
-      final success = await launchUrl(Uri.parse(native), mode: LaunchMode.externalApplication);
+      final success = await launchUrl(
+        Uri.parse(native),
+        mode: LaunchMode.externalApplication,
+      );
       if (!success) {
         await launchUrl(fallback, mode: LaunchMode.externalApplication);
       }
@@ -451,7 +527,9 @@ class _AnimatedContactUsState extends State<AnimatedContactUs> {
 
   void _showError(String message) {
     final context = this.context;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 }
 

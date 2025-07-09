@@ -40,7 +40,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  animated_contact_us: ^0.0.5
+  animated_contact_us: ^0.0.6
 
 ## Usage
 

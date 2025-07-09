@@ -15,8 +15,8 @@ class HoverIconButton extends StatefulWidget {
 }
 
 class _HoverIconButtonState extends State<HoverIconButton> {
-  bool _isHovered = false;   // Tracks whether the icon is being hovered or tapped
-  bool _isVisible = false;   // Used to trigger fade-in effect on first build
+  bool _isHovered = false; // Tracks whether the icon is being hovered or tapped
+  bool _isVisible = false; // Used to trigger fade-in effect on first build
 
   @override
   void initState() {
@@ -58,9 +58,10 @@ class _HoverIconButtonState extends State<HoverIconButton> {
                 child: Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: _isHovered
-                        ? Colors.grey.shade300
-                        : Colors.grey.shade200,
+                    color:
+                        _isHovered
+                            ? Colors.grey.shade300
+                            : Colors.grey.shade200,
                   ),
                   padding: const EdgeInsets.all(4),
                   child: InkWell(
@@ -69,11 +70,7 @@ class _HoverIconButtonState extends State<HoverIconButton> {
                     child: CircleAvatar(
                       radius: 20,
                       backgroundColor: Colors.transparent,
-                      child: Icon(
-                        widget.icon,
-                        size: 20,
-                        color: Colors.black87,
-                      ),
+                      child: Icon(widget.icon, size: 20, color: Colors.black87),
                     ),
                   ),
                 ),
