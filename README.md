@@ -8,6 +8,7 @@ Ideal for apps, portfolios, or business apps that want to provide sleek, profess
 
 > Developed by **George Amany**, a Flutter developer, with guidance and mentorship by **Abdelrahman Ibrahem** (Tech Lead).  
 > This package reflects great teamwork and technical support throughout the process.
+> If you like this package, please give it a like on pub.dev so more people can find and benefit from it.
 
 ---
 
@@ -40,7 +41,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  animated_contact_us: ^0.0.6
+  animated_contact_us: ^0.0.7
 
 ## Usage
 
